@@ -1,3 +1,4 @@
+//BFS
 graph = {
     'A': ['B', 'C'],
     'B': [],
@@ -13,7 +14,7 @@ while queue:
         print(node, end=" ")
         visited.append(node)
         queue.extend(graph[node])
-DFS****
+//DFS
 graph = {
     'A': ['B', 'C'],
     'B': [],
