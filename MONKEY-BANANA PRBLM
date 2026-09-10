@@ -1,0 +1,35 @@
+def monkey_banana(monkey_pos, box_pos, banana_pos):
+    actions = []
+
+    if monkey_pos != box_pos:
+        actions.append("Monkey walks to the box")
+        monkey_pos = box_pos
+
+    
+    if box_pos != banana_pos:
+        actions.append("Monkey pushes the box under the banana")
+        box_pos = banana_pos
+        monkey_pos = banana_pos
+
+    
+    actions.append("Monkey climbs onto the box")
+
+    
+    actions.append("Monkey grasps the banana")
+
+    return actions
+
+
+
+monkey_pos = input("Enter monkey position: ")
+box_pos = input("Enter box position: ")
+banana_pos = input("Enter banana position: ")
+
+
+result = monkey_banana(monkey_pos, box_pos, banana_pos)
+
+print("\nGoal Stack Plan:")
+for step in result:
+    print(step)
+
+print("\nResult: Monkey successfully obtained the banana!")
