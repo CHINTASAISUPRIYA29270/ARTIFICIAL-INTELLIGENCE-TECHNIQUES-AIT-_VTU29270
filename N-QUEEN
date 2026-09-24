@@ -1,0 +1,33 @@
+# N-Queen
+N = 4
+board = [[0] * N for _ in range(N)]
+
+def is_safe(r, c):
+    for i in range(r):
+        # Check the same column, left diagonal, and right diagonal
+        if board[i][c] == 1 or \
+           (c - r + i >= 0 and board[i][c - r + i] == 1) or \
+           (c + r - i < N and board[i][c + r - i] == 1):
+            return False
+    return True
+
+def solve(r):
+    # Base case: All queens are placed
+    if r == N:
+        for row in board:
+            print(row)
+        return True
+    
+    # Try placing a queen in each column of the current row 'r'
+    for c in range(N):
+        if is_safe(r, c):
+            board[r][c] = 1         # Place the queen
+            
+            if solve(r + 1):        # Recurse for the next row
+                return True
+                
+            board[r][c] = 0         # Backtrack if it doesn't lead to a solution
+            
+    return False
+
+solve(0)
