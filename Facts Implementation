@@ -1,0 +1,10 @@
+facts = [
+    "Ram likes mango",
+    "Seema is a girl",
+    "Bill likes Cindy",
+    "Rose is red",
+    "John owns gold"
+]
+
+x = input("Enter fact: ")
+print(x in facts)
